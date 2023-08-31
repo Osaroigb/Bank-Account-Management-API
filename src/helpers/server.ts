@@ -1,5 +1,6 @@
 import { Server } from 'http';
 import { logger } from '../utils/logger';
+import { sequelize } from '../database/sequelize';
 
 export const normalizePort = (val: string | number): number => {
   const port = parseInt(val.toString(), 10);
@@ -15,12 +16,12 @@ export const normalizePort = (val: string | number): number => {
   return 3000;
 };
 
-export const gracefulShutdown = (server: Server, message?: string): void => {
+export const gracefulShutdown = async (server: Server, message?: string): Promise<void> => {
   try {
     if (message) logger.info(message);
     
-    // await sequelize.close();
-    // logger.info('Closed database connection!');
+    await sequelize.close();
+    logger.info('Closed database connection!');
 
     server.close();
     process.exit();
