@@ -1,11 +1,11 @@
-// import { UserBankAccountAttributes } from '../database/models/UserBankAccount';
+import { BankAccountAttributes } from '../database/models/BankAccount';
 
-// declare global {
+declare global {
   
-//   namespace Express {
+  namespace Express {
     
-//     interface Request {
-//       userBankAccount?: UserBankAccountAttributes;
-//     }
-//   }
-// }
+    interface Request {
+      bankAccount?: BankAccountAttributes;
+    }
+  }
+}
