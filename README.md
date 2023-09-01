@@ -46,6 +46,13 @@ Use `development` or `staging` as your node environment
 It is important to set up environment variables for the system to function properly
 
 
+### Production
+
+This API is deployed to production and available at `http://161.35.172.241:3300`
+
+Ensure you use either Postman's Cloud Agent or Desktop Agent to successfully send HTTP requests 
+
+
 ### JSON Payload
 
 1. Add a full name to the payload as account holder's name e.g. `John Doe`

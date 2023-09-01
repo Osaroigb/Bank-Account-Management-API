@@ -21,8 +21,6 @@ const router = Router();
  *                 type: string
  *               dob:
  *                 type: string
- *               email:
- *                 type: string
  *               type:
  *                 type: string
  *               balance:
