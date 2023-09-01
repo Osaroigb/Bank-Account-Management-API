@@ -1,30 +1,44 @@
 folder structure
 └───src
-   │
-   └───api
-   │   │
-   |   └─────middlewares
-   |   │
-   │   └──────routes
-   │
+   |   
+   |   
+   |
    │
    └───config
-   │   │
-   │   │         
-   │   │     
    │   │    
-   │   │ sequelize.js
-   │   │ index.ts
-   │
-   │
+   |   └──────sequelize.js
+   |   |
+   |   └──────index.ts
+   |
+   |
+   |
    │
    └───database
    │  │
    │  └──────migrations
    │  │
    │  └──────models
-   │  
-   │  
+   |  │
+   │  └──────repositories
+   |  |
+   │  └──────sequelize.ts
+   │
+   |
+   |
+   └───errors
+   |
+   |
+   |
+   |
+   └───helpers
+   |
+   |
+   |
+   |
+   └───middlewares
+   |
+   |
+   |
    │
    └───modules
    |  │
@@ -45,13 +59,23 @@ folder structure
    │  │  | moduleA.validation.ts
    │  │
    │  └───moduleB
+   |  |
+   |  |
+   |  |
+   |  └───routes.ts
    │
    │
+   |
+   └───types
+   |
+   |
    │
    │
    └───utils
-   │
-   │
-   │  server.ts
-   │  app.ts
+   │  
+   │  
+   └───app.ts
+   |
+   |
+   └───server.ts
    

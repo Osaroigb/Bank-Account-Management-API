@@ -3,13 +3,17 @@ import { Model, DataTypes, CreationOptional, InferAttributes, InferCreationAttri
 
 export type BankAccountAttributes = InferAttributes<BankAccount>;
 
-class BankAccount extends Model<BankAccountAttributes, InferCreationAttributes<BankAccount>> {
+interface BankAccountCreationAttributes extends InferCreationAttributes<BankAccount> {
+  initialBalance: number;
+}
 
-  declare id: CreationOptional<number>;
+class BankAccount extends Model<BankAccountAttributes, BankAccountCreationAttributes> {
+
+  declare id: number;
 
   declare accountName: string;
 
-  declare dateOfBirth: CreationOptional<string> | null;
+  declare dateOfBirth: CreationOptional<string>;
 
   declare accountNumber: number;
 
@@ -22,7 +26,6 @@ class BankAccount extends Model<BankAccountAttributes, InferCreationAttributes<B
 
 BankAccount.init(
   {
-  // @ts-ignore
     id: {
       type: DataTypes.INTEGER().UNSIGNED,
       allowNull: false,
@@ -43,11 +46,10 @@ BankAccount.init(
     },
     accountType: {
       type: DataTypes.ENUM('savings', 'checking', 'current'),
-      defaultValue: 'savings',
       allowNull: false
     },
     initialBalance: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.DECIMAL(10, 2).UNSIGNED,
       defaultValue: 0.00,
       allowNull: false
     },

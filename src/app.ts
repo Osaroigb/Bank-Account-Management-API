@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
-app.get('/', (_req, res) => res.send('Welcome to Bank Account Management API Service'));
+app.get('/', (_req, res) => res.send('Welcome to MobiCash Bank API'));
 
 app.get('/status', (_req, res) => res.status(200).end());
 app.head('/status', (_req, res) => res.status(200).end());

@@ -9,7 +9,7 @@ const config = convict({
   },
   port: {
     arg: 'port',
-    default:3300,
+    default: 3300,
     doc: 'The port to bind',
     env: 'APP_PORT',
     format: 'port'
@@ -26,8 +26,8 @@ const config = convict({
     default: true,
     doc: 'To determine whether to show application logs',
     env: 'SHOW_APP_LOGS',
-    format: Boolean,
-    nullable: true
+    nullable: true,
+    format: Boolean
   },
   mysqlDatabase: {
     host: {
@@ -57,12 +57,12 @@ const config = convict({
       format: String
     },
     password: {
+      default: 'root',
       doc: 'Mysql database password',
       env: 'MYSQL_DATABASE_PASSWORD',
-      format: String,
       nullable: true,
-      default: '',
-      sensitive: true
+      sensitive: true,
+      format: String
     },
     showLogs: {
       default: true,
