@@ -1,6 +1,5 @@
 import 'dotenv/config';
 import cors from 'cors';
-import path from 'path';
 import morgan from 'morgan';
 import compression from 'compression';
 import { handleError } from './helpers/errorHandler';
@@ -11,7 +10,6 @@ const swaggerSpecs = require('../swagger');
 const swaggerUi = require('swagger-ui-express');
 
 const app = express();
-app.set("view engine", "ejs");
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 app.use(cors());
@@ -19,13 +17,9 @@ app.use(compression());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.get('/', (_req, res) => res.send('Welcome to MobiCash Bank API'));
-
-app.get('/status', (_req, res) => res.status(200).end());
-app.head('/status', (_req, res) => res.status(200).end());
 
 initiateModuleRoutes(app);
 

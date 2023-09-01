@@ -6,9 +6,9 @@ folder structure
    │
    └───config
    │   │    
-   |   └──────sequelize.js
-   |   |
    |   └──────index.ts
+   |   |
+   |   └──────sequelizeHook.js
    |
    |
    |
@@ -25,17 +25,38 @@ folder structure
    │
    |
    |
+   |
    └───errors
+   |  │  
+   │  └──────BadRequestError.ts
+   │  │
+   │  └──────DomainError.ts
+   |  │
+   │  └──────InternalServerError.ts
+   |  │
+   │  └──────ResourceNotFoundError.ts
+   |  |
+   │  └──────index.ts
    |
    |
    |
    |
    └───helpers
+   |  |   
+   │  └──────errorHandler.ts
+   │  │
+   │  └──────response.ts
+   |  │
+   │  └──────server.ts
+   |  │
+   │  └──────utilities.ts
    |
    |
    |
    |
    └───middlewares
+   |  |
+   |  └──────paginate.ts
    |
    |
    |
@@ -50,7 +71,7 @@ folder structure
    │  │  │
    │  │  | moduleA.helper.ts
    │  │  │
-   │  │  | moduleA.repository.ts
+   │  │  | moduleA.interface.ts
    │  │  │
    │  │  | moduleA.route.ts
    │  │  │
@@ -60,22 +81,30 @@ folder structure
    │  │
    │  └───moduleB
    |  |
-   |  |
-   |  |
    |  └───routes.ts
    │
+   |
    │
    |
    └───types
+   |  |
+   |  └──────custom.d.ts
    |
    |
    │
    │
    └───utils
-   │  
+   │   │    
+   |   └──────logger.ts
+   |   |
+   |   └──────validator.ts
+   │
+   |
+   |  
    │  
    └───app.ts
    |
    |
+   |
+   |
    └───server.ts
-   

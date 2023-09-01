@@ -18,7 +18,7 @@ const config = convict({
     default: 'http://161.35.172.241:3300', 
     doc: 'App base url',
     env: 'APP_BASE_URL',
-    nullable: true,
+    nullable: false,
     format: String
   },
   showLogs: {

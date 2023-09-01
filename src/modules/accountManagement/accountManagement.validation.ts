@@ -54,7 +54,7 @@ export const validateBankAccountRequest = (payload: unknown): CreateBankAccountP
     name: string.max(30).trim().required(),
     dob: string.custom(validateDateOfBirth).required(),
     type: string.valid(AccountType.SAVINGS, AccountType.CHECKING, AccountType.CURRENT).required(),
-    balance: number.custom(validateBalance).precision(10).max(9999999999.99).required()
+    balance: number.custom(validateBalance).precision(10).max(9999999999).required()
   });
   
   return validate(payload, schema);
