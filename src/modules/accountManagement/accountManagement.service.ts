@@ -38,7 +38,7 @@ export const processGetBankAccountDetails = async (accountNumber: number): Promi
   }
   
   return {
-    message: 'Bank account details retrieved successfully!',
+    message: 'User bank account details retrieved successfully!',
     data: userBankAccount
   }
 };
@@ -54,6 +54,10 @@ export const processGetAllBankAccountDetails = async (
     }),
     order: [['createdAt', 'ASC']]
   });
-  
+
+  if (userBankAccounts.rows.length === 0) {
+    throw new ResourceNotFoundError('No user bank accounts found!');
+  }
+
   return userBankAccounts;
 };

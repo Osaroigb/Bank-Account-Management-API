@@ -15,7 +15,7 @@ const config = convict({
     format: 'port'
   },
   baseUrl: {
-    default: 'https://bankapi-staging.sh', 
+    default: 'http://161.35.172.241:3300', 
     doc: 'App base url',
     env: 'APP_BASE_URL',
     nullable: true,

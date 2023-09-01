@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
-import { responseHandler, paginateResponseHandler } from '../../helpers/response';
 import * as bankAccountService from './accountManagement.service';
 import { validateBankAccountRequest } from './accountManagement.validation';
+import { responseHandler, paginateResponseHandler } from '../../helpers/response';
 
 export const createBankAccount: RequestHandler = async (req, res, next) => {
   try {
@@ -36,7 +36,7 @@ export const getAllBankAccountDetails: RequestHandler = async (_req, res, next) 
 
     res.json(
       paginateResponseHandler({
-        message: 'Bank accounts retrieved successfully!',
+        message: 'All bank accounts retrieved successfully!',
         paginate,
         count: results.count,
         rows: results.rows

@@ -1,5 +1,5 @@
 {
-  "name": "bank-account-management-api",
+  "name": "mobicash-bank-api",
   "version": "1.0.0",
   "description": "A simple RESTful API using Node.js and Express with three endpoints: one to create a bank account, one to resolve a bank account, and one to fetch all bank accounts.",
   "main": "index.js",
@@ -12,6 +12,7 @@
     "start": "ts-node-dev --files --respawn ./src/server.ts",
     "build": "tsc",
     "test": "TZ=UTC jest --forceExit",
+    "generate-swagger": "node ./swagger.js",
     "lint": "eslint --ext .ts,.js src/**",
     "lint-fix": "npm run lint -- --fix",
     "prettier": "prettier \"**/*.+(ts|js)\"",
@@ -49,6 +50,8 @@
     "safe-json-stringify": "^1.2.0",
     "sequelize": "^6.23.0",
     "stoppable": "^1.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
     "ts-node": "^10.8.1",
     "upath": "^2.0.1",
     "winston": "^3.6.0"
