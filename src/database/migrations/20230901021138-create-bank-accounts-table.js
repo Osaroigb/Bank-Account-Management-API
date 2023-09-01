@@ -15,12 +15,12 @@ module.exports = {
         type: Sequelize.STRING(30)
       },
       dateOfBirth: {
-        allowNull: true,
-        type: Sequelize.STRING(10)
+        allowNull: false,
+        type: Sequelize.DATE()
       },
       accountNumber: {
         allowNull: false,
-        type: Sequelize.INTEGER()
+        type: Sequelize.BIGINT
       },
       accountType: {
         allowNull: false,
@@ -29,9 +29,13 @@ module.exports = {
       initialBalance: {
         allowNull: false,
         defaultValue: 0.00,
-        type: Sequelize.DECIMAL(10, 2).UNSIGNED
+        type: Sequelize.BIGINT
       },
       createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE()
+      },
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE()
       },

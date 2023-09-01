@@ -48,11 +48,13 @@ It is important to set up environment variables for the system to function prope
 
 ### JSON Payload
 
-1. Add a full name to the payload as account holder's name i.e. `John Doe`
+1. Add a full name to the payload as account holder's name e.g. `John Doe`
 
-2. Use this format `dd/mm/yyyy` when adding the account holder's date of birth
+2. Use this format `YYYY-MM-DD` format when adding the account holder's date of birth e.g. `1854-08-03` 
 
 3. The account types available are `savings`, `checking` and `current`
+
+4. The initial balance can be a number with up to 10 digits including 2 decimal places e.g. `9999999999.99`
 
 
 #### Logging

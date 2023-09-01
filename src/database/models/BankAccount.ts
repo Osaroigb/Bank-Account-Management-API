@@ -8,12 +8,11 @@ interface BankAccountCreationAttributes extends InferCreationAttributes<BankAcco
 }
 
 class BankAccount extends Model<BankAccountAttributes, BankAccountCreationAttributes> {
-
-  declare id: number;
+  declare id: CreationOptional<number>;
 
   declare accountName: string;
 
-  declare dateOfBirth: CreationOptional<string>;
+  declare dateOfBirth: Date;
 
   declare accountNumber: number;
 
@@ -22,6 +21,8 @@ class BankAccount extends Model<BankAccountAttributes, BankAccountCreationAttrib
   declare initialBalance: number;
 
   declare createdAt: CreationOptional<Date>;
+
+  declare updatedAt: CreationOptional<Date>;
 }
 
 BankAccount.init(
@@ -37,11 +38,11 @@ BankAccount.init(
       allowNull: false
     },
     dateOfBirth: {
-      type: DataTypes.STRING(30),
-      allowNull: true
+      type: DataTypes.DATE(),
+      allowNull: false
     },
     accountNumber: {
-      type: DataTypes.INTEGER(),
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     accountType: {
@@ -49,11 +50,12 @@ BankAccount.init(
       allowNull: false
     },
     initialBalance: {
-      type: DataTypes.DECIMAL(10, 2).UNSIGNED,
+      type: DataTypes.BIGINT,
       defaultValue: 0.00,
       allowNull: false
     },
-    createdAt: DataTypes.DATE()
+    createdAt: DataTypes.DATE(),
+    updatedAt: DataTypes.DATE()
   },
   {
     tableName: 'bankAccounts',

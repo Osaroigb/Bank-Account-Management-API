@@ -1,4 +1,4 @@
 import routes from './accountManagement.route';
-// import * as services from './accountManagement.service';
+import * as services from './accountManagement.service';
 
-export { routes };
+export { routes, services };
