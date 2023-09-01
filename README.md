@@ -54,7 +54,7 @@ It is important to set up environment variables for the system to function prope
 
 3. The account types available are `savings`, `checking` and `current`
 
-4. The initial balance can be a number with up to 10 digits including 2 decimal places e.g. `9999999999.99`
+4. The initial balance can be a number with up to 10 digits e.g. `9999999999`
 
 
 #### Logging

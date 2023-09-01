@@ -51,7 +51,7 @@ BankAccount.init(
     },
     initialBalance: {
       type: DataTypes.BIGINT,
-      defaultValue: 0.00,
+      defaultValue: 0,
       allowNull: false
     },
     createdAt: DataTypes.DATE(),

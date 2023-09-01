@@ -9,11 +9,3 @@ export type ResponseObject = {
   message: string;
   data: object;
 };
-
-export type AccountDetails = {
-  accountNumber: number;
-  accountName: string;
-  dateOfBirth: string;
-  accountType: 'savings' | 'checking' | 'current';
-  initialBalance: number;
-};

@@ -1,8 +1,7 @@
-// import { logger } from '../../utils/logger';
-// import { ResourceNotFoundError } from '../../errors';
+import { ResourceNotFoundError } from '../../errors';
 import { BankAccountRepo } from '../../database/repositories';
 import { accountNumberGenerator } from './accountManagement.helper';
-import { CreateBankAccountParams, ResponseObject} from './accountManagement.interface';
+import { CreateBankAccountParams, ResponseObject } from './accountManagement.interface';
 
 const bankAccountRepo = new BankAccountRepo();
 
@@ -27,4 +26,34 @@ export const processCreateBankAccount = async (data: CreateBankAccountParams): P
       initialBalance: data.balance
     }  
   }
+};
+
+export const processGetBankAccountDetails = async (accountNumber: number): Promise<ResponseObject> => {
+  const userBankAccount = await bankAccountRepo.findOne({
+    where: { accountNumber }
+  });
+  
+  if (!userBankAccount) {
+    throw new ResourceNotFoundError('Bank account with this account number does not exist!');
+  }
+  
+  return {
+    message: 'Bank account details retrieved successfully!',
+    data: userBankAccount
+  }
+};
+
+export const processGetAllBankAccountDetails = async (
+  options?: { limit: number; offset: number }
+): Promise<{ count: number; rows: { [key: string]: any }[] }> => {
+  
+  const userBankAccounts = await bankAccountRepo.findAndCountAll({
+    ...(options && {
+      limit: +options.limit,
+      offset: +options.offset
+    }),
+    order: [['createdAt', 'ASC']]
+  });
+  
+  return userBankAccounts;
 };

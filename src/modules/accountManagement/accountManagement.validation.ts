@@ -45,9 +45,7 @@ const validateBalance = (value: number): number => {
     throw new BadRequestError('Negavite initial balance not allowed!');
   }
 
-  // Ensure the balance has at most 2 decimal places
-  const fixedBalance = parseFloat(value.toFixed(2));
-  return fixedBalance;
+  return value;
 };
 
 export const validateBankAccountRequest = (payload: unknown): CreateBankAccountParams => {

@@ -28,7 +28,7 @@ module.exports = {
       },
       initialBalance: {
         allowNull: false,
-        defaultValue: 0.00,
+        defaultValue: 0,
         type: Sequelize.BIGINT
       },
       createdAt: {
