@@ -48,13 +48,22 @@ const validateBalance = (value: number): number => {
   return value;
 };
 
-export const validateBankAccountRequest = (payload: unknown): CreateBankAccountParams => {
+export const validateCreateAccountRequest = (payload: unknown): CreateBankAccountParams => {
   
   const schema = object.keys({
     name: string.max(30).trim().required(),
     dob: string.custom(validateDateOfBirth).required(),
     type: string.valid(AccountType.SAVINGS, AccountType.CHECKING, AccountType.CURRENT).required(),
     balance: number.custom(validateBalance).precision(10).max(9999999999).required()
+  });
+  
+  return validate(payload, schema);
+};
+
+export const validateUpdateAccountRequest = (payload: unknown): { name: string } => {
+  
+  const schema = object.keys({
+    name: string.max(30).trim().required(),
   });
   
   return validate(payload, schema);

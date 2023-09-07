@@ -61,3 +61,44 @@ export const processGetAllBankAccountDetails = async (
 
   return userBankAccounts;
 };
+
+export const processUpdateBankAccountDetails = async (accountNumber: number, data: { name: string }): Promise<ResponseObject> => {
+  const userBankAccount = await bankAccountRepo.findOne({
+    where: { accountNumber }
+  });
+  
+  if (!userBankAccount) {
+    throw new ResourceNotFoundError('Bank account with this account number does not exist!');
+  }
+
+  await bankAccountRepo.update({ 
+    accountName: data.name, 
+  }, { where: { accountNumber } });
+
+  const updatedBankAccount = await bankAccountRepo.findOne({
+    where: { accountNumber }
+  });
+
+  return {
+    message: 'User bank account name updated successfully!',
+    data: updatedBankAccount as object
+  }
+};
+
+export const processDeleteBankAccountDetails = async (accountNumber: number): Promise<any> => {
+  const deletedBankAccount = await bankAccountRepo.findOne({
+    where: { accountNumber }
+  });
+ 
+  if (!deletedBankAccount) {
+    throw new ResourceNotFoundError('Bank account with this account number does not exist!');
+  }
+
+  await bankAccountRepo.destroy({
+    where: { accountNumber }
+  });
+
+  return {
+    message: 'User bank account deleted successfully!'
+  }
+};

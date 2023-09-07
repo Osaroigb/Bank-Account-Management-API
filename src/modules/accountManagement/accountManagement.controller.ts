@@ -1,11 +1,11 @@
 import { RequestHandler } from 'express';
 import * as bankAccountService from './accountManagement.service';
-import { validateBankAccountRequest } from './accountManagement.validation';
 import { responseHandler, paginateResponseHandler } from '../../helpers/response';
+import { validateCreateAccountRequest, validateUpdateAccountRequest } from './accountManagement.validation';
 
 export const createBankAccount: RequestHandler = async (req, res, next) => {
   try {
-    const validatedData = validateBankAccountRequest(req.body);
+    const validatedData = validateCreateAccountRequest(req.body);
     const result = await bankAccountService.processCreateBankAccount(validatedData);
 
     res.json(responseHandler(result.message, result.data));
@@ -42,6 +42,29 @@ export const getAllBankAccountDetails: RequestHandler = async (_req, res, next) 
         rows: results.rows
       })
     );
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateBankAccountDetails: RequestHandler = async (req, res, next) => {
+  try {
+    const accountNumber = Number(req.params.accountNumber);
+    const validData = validateUpdateAccountRequest(req.body);
+  
+    const result = await bankAccountService.processUpdateBankAccountDetails(accountNumber, validData);
+    res.json(responseHandler(result.message, result.data));
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteBankAccountDetails: RequestHandler = async (req, res, next) => {
+  try {
+    const accountNumber = Number(req.params.accountNumber);
+  
+    const result = await bankAccountService.processDeleteBankAccountDetails(accountNumber);
+    res.json(responseHandler(result.message));
   } catch (error) {
     next(error);
   }

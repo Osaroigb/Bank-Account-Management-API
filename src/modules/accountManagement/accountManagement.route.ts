@@ -76,4 +76,44 @@ router.get('/', paginate, accountManagementController.getAllBankAccountDetails);
  */
 router.get('/:accountNumber', accountManagementController.getBankAccountDetails);
 
+/**
+ * @swagger
+ * /v1/bank/:accountNumber:
+ *   parameters:
+ *     - in: path
+ *       name: accountNumber
+ *       required: true
+ *       description: The user's unique 10-digit account number.
+ *       schema:
+ *         type: integer
+ *         format: int64
+ *   put:
+ *     summary: Update a user's bank account
+ *     description: Change the name of a user's bank account.
+ *     responses:
+ *       '200':
+ *         description: An updated bank account.
+ */
+router.put('/:accountNumber', accountManagementController.updateBankAccountDetails);
+
+/**
+ * @swagger
+ * /v1/bank/:accountNumber:
+ *   parameters:
+ *     - in: path
+ *       name: accountNumber
+ *       required: true
+ *       description: The user's unique 10-digit account number.
+ *       schema:
+ *         type: integer
+ *         format: int64
+ *   delete:
+ *     summary: Delete a user's bank account
+ *     description: Delete a user's bank account details.
+ *     responses:
+ *       '204':
+ *         description: A deleted bank account.
+ */
+router.delete('/:accountNumber', accountManagementController.deleteBankAccountDetails);
+
 export default router;
