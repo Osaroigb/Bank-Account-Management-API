@@ -25,14 +25,14 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Osaroigb/Bank-Account-Management-API.git"
+    "url": "git+ssh://git@github.com/Osaroigb/mobicash-bank-api.git"
   },
   "author": "Osaroigb",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Osaroigb/Bank-Account-Management-API/issues"
+    "url": "https://github.com/Osaroigb/mobicash-bank-api/issues"
   },
-  "homepage": "https://github.com/Osaroigb/Bank-Account-Management-API#readme",
+  "homepage": "https://github.com/Osaroigb/mobicash-bank-api#readme",
   "dependencies": {
     "@sequelize/core": "^7.0.0-alpha.17",
     "compression": "^1.7.4",
@@ -40,7 +40,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.17.3",
-    "express-session": "^1.17.3",
     "joi": "^17.6.0",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
