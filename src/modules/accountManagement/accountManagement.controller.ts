@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 import * as bankAccountService from './accountManagement.service';
+import { validateCreateAccountRequest } from './accountManagement.validation';
 import { responseHandler, paginateResponseHandler } from '../../helpers/response';
-import { validateCreateAccountRequest, validateUpdateAccountRequest } from './accountManagement.validation';
 
 export const createBankAccount: RequestHandler = async (req, res, next) => {
   try {
@@ -42,18 +42,6 @@ export const getAllBankAccountDetails: RequestHandler = async (_req, res, next) 
         rows: results.rows
       })
     );
-  } catch (error) {
-    next(error);
-  }
-};
-
-export const updateBankAccountDetails: RequestHandler = async (req, res, next) => {
-  try {
-    const accountNumber = Number(req.params.accountNumber);
-    const validData = validateUpdateAccountRequest(req.body);
-  
-    const result = await bankAccountService.processUpdateBankAccountDetails(accountNumber, validData);
-    res.json(responseHandler(result.message, result.data));
   } catch (error) {
     next(error);
   }

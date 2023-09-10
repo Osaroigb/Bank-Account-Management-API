@@ -59,12 +59,3 @@ export const validateCreateAccountRequest = (payload: unknown): CreateBankAccoun
   
   return validate(payload, schema);
 };
-
-export const validateUpdateAccountRequest = (payload: unknown): { name: string } => {
-  
-  const schema = object.keys({
-    name: string.max(30).trim().required(),
-  });
-  
-  return validate(payload, schema);
-};
