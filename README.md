@@ -1,6 +1,6 @@
 # MobiCash Bank API
 
-A simple RESTful API using Node.js and Express with five endpoints: one to create a bank account, one to resolve a bank account, one to fetch all bank accounts, one to update a bank account, and one to delete a bank account.
+A simple RESTful API using Node.js and Express with four endpoints: one to create a bank account, one to resolve a bank account, one to fetch all bank accounts, and one to delete a bank account.
 
 
 ## Setup

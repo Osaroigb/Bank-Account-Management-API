@@ -1,7 +1,7 @@
 {
   "name": "mobicash-bank-api",
   "version": "1.0.0",
-  "description": "A simple RESTful API using Node.js and Express with three endpoints: one to create a bank account, one to resolve a bank account, and one to fetch all bank accounts.",
+  "description": "A simple RESTful API using Node.js and Express with four endpoints: one to create a bank account, one to resolve a bank account, one to fetch all bank accounts, and one to delete a bank account.",
   "main": "index.js",
   "engineStrict": true,
   "engines": {
